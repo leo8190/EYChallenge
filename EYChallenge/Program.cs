@@ -22,23 +22,7 @@ namespace EYChallenge
             var roundedSquareRoot = Math.Ceiling(squareRoot);
             var roundedSquareRootInt = Convert.ToInt32(roundedSquareRoot);
 
-            char[][] jaggedArray = new char[roundedSquareRootInt][];
-
-            int position = 0;
-
-            for (int i = 0; i < roundedSquareRoot; i++)
-            {
-                jaggedArray[i] = new char[roundedSquareRootInt];
-                for(int j = 0; j < roundedSquareRoot; j++)
-                {
-                    if (position > textLength - 1)
-                    {
-                        break;
-                    }
-                    jaggedArray[i][j] = stringWithoutSpaces[position];
-                    position++;
-                }
-            }
+            var jaggedArray = CreateJaggedArray(roundedSquareRootInt, textLength, stringWithoutSpaces);
 
             for(int i = 0; i < jaggedArray.Length; i++)
             {
@@ -48,6 +32,28 @@ namespace EYChallenge
                 }
                 Console.Write(" ");
             }
+        }
+
+        private static char[][] CreateJaggedArray(int roundedSquareRootInt, int textLength, string stringWithoutSpaces)
+        {
+            char[][] jaggedArray = new char[roundedSquareRootInt][];
+
+            int position = 0;
+
+            for (int i = 0; i < roundedSquareRootInt; i++)
+            {
+                jaggedArray[i] = new char[roundedSquareRootInt];
+                for (int j = 0; j < roundedSquareRootInt; j++)
+                {
+                    if (position > textLength - 1)
+                    {
+                        break;
+                    }
+                    jaggedArray[i][j] = stringWithoutSpaces[position];
+                    position++;
+                }
+            }
+            return jaggedArray;
         }
 
         public static string RemoveWhitespace(string input)
