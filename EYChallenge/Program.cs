@@ -22,13 +22,13 @@ namespace EYChallenge
             var roundedSquareRoot = Math.Ceiling(squareRoot);
             var roundedSquareRootInt = Convert.ToInt32(roundedSquareRoot);
 
-            var jaggedArray = CreateJaggedArray(roundedSquareRootInt, textLength, stringWithoutSpaces);
+            var letterTable = CreateJaggedArray(roundedSquareRootInt, textLength, stringWithoutSpaces);
 
-            for(int i = 0; i < jaggedArray.Length; i++)
+            for(int i = 0; i < letterTable.Length; i++)
             {
-                for(int j = 0; j < jaggedArray.Length; j++)
+                for(int j = 0; j < letterTable.Length; j++)
                 {
-                    Console.Write(jaggedArray[j][i]);                
+                    Console.Write(letterTable[j][i]);                
                 }
                 Console.Write(" ");
             }
@@ -36,24 +36,24 @@ namespace EYChallenge
 
         private static char[][] CreateJaggedArray(int roundedSquareRootInt, int textLength, string stringWithoutSpaces)
         {
-            char[][] jaggedArray = new char[roundedSquareRootInt][];
+            char[][] letterTable = new char[roundedSquareRootInt][];
 
             int position = 0;
 
             for (int i = 0; i < roundedSquareRootInt; i++)
             {
-                jaggedArray[i] = new char[roundedSquareRootInt];
+                letterTable[i] = new char[roundedSquareRootInt];
                 for (int j = 0; j < roundedSquareRootInt; j++)
                 {
                     if (position > textLength - 1)
                     {
                         break;
                     }
-                    jaggedArray[i][j] = stringWithoutSpaces[position];
+                    letterTable[i][j] = stringWithoutSpaces[position];
                     position++;
                 }
             }
-            return jaggedArray;
+            return letterTable;
         }
 
         public static string RemoveWhitespace(string input)
