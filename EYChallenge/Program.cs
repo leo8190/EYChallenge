@@ -22,7 +22,7 @@ namespace EYChallenge
             var roundedSquareRoot = Math.Ceiling(squareRoot);
             var roundedSquareRootInt = Convert.ToInt32(roundedSquareRoot);
 
-            var letterTable = CreateJaggedArray(roundedSquareRootInt, textLength, stringWithoutSpaces);
+            var letterTable = CreateLetterTable(roundedSquareRootInt, textLength, stringWithoutSpaces);
 
             for(int i = 0; i < letterTable.Length; i++)
             {
@@ -34,7 +34,7 @@ namespace EYChallenge
             }
         }
 
-        private static char[][] CreateJaggedArray(int roundedSquareRootInt, int textLength, string stringWithoutSpaces)
+        private static char[][] CreateLetterTable(int roundedSquareRootInt, int textLength, string stringWithoutSpaces)
         {
             char[][] letterTable = new char[roundedSquareRootInt][];
 
